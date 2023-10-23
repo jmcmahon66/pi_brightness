@@ -5,12 +5,16 @@ import sys
 # https://docs.kernel.org/gpu/backlight.html
 # Doesn't work on OLED screen because of no backlight
 
-backlight_dir = "/sys/class/backlight/"
+default_backlight_dir = "/sys/class/backlight/"
 brightness_file = "brightness"
 
 
-def find_backlight_path():
+def find_backlight_path(custom_backlight_dir=None):
     # Check if /sys/class/backlight/ exists
+    # backlight_dir = "/sys/class/backlight/"
+    backlight_dir = custom_backlight_dir or default_backlight_dir
+    # print(f"backlight_dir = {backlight_dir}")
+
     if not os.path.exists(backlight_dir) or not os.path.isdir(backlight_dir):
         return None
 
@@ -22,7 +26,10 @@ def find_backlight_path():
     if len(backlight_subdirs) == 1:
         # Construct the full path of the child directory
         brightness_file_path = os.path.join(backlight_dir, backlight_subdirs[0], brightness_file)
-        return brightness_file_path
+        if os.path.isfile(brightness_file_path):
+            return brightness_file_path
+        else:
+            return None
     else:
         return None
 
