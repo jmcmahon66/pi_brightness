@@ -12,8 +12,6 @@ parent_directory = os.path.dirname(current_directory)
 sys.path.append(parent_directory)
 from module.pi_brightness import *
 
-windows_path = "C:\\Workspace\\pi_brightness\\test"  # Need to make dir
-
 
 class TestBacklightPath(unittest.TestCase):
     def test_default_path(self):
