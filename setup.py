@@ -5,7 +5,7 @@ setup(
     version='1.0.0',
     description='Controls Raspberry Pi screen brightness (or other Linux devices)',
     author='Joseph McMahon',
-    packages=['pi_brightness'],
+    packages=['module'],
     install_requires=[
         'os',
         'enum',
