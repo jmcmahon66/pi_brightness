@@ -1,5 +1,5 @@
 # pi_brightness
-Module for controlling the brightness for Raspberry Pi's external display brightness
+Module for controlling a Raspberry Pi's external display brightness
 
 ## Compatibility
 Works on raspbian, functionality should also exist on most Linux systems
@@ -16,6 +16,13 @@ from pi_brightness import *
 # Use a value from 0-100 for screen brightness percentage
 update_brightness("80")
 ```
+
+## Error codes
+    PATH_NOT_FOUND = 1
+    INT_OUT_OF_RANGE = 2
+    UPDATE_FAILED = 3
+    TOO_MANY_DEVICES = 4
+    FILE_DOESNT_EXIST = 5
 
 ## Contributing
 Feel free to pull and use as you see fit.
