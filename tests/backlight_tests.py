@@ -10,7 +10,7 @@ current_directory = os.path.dirname(os.path.realpath(__file__))
 os.chdir(current_directory)
 parent_directory = os.path.dirname(current_directory)
 sys.path.append(parent_directory)
-from module.pi_brightness import *
+from pi_brightness.pi_brightness import *
 
 
 class TestBacklightPath(unittest.TestCase):
@@ -34,14 +34,6 @@ class TestBacklightPath(unittest.TestCase):
         print("Running test:", self._testMethodName)
         test_return = find_backlight_path("/invalid/")
         self.assertEqual(test_return, ErrorCode.PATH_NOT_FOUND)
-        print(self._testMethodName, " - PASSED")
-        print("-----")
-
-    # REMOVE
-    def test_windows_path(self):
-        print("Running test:", self._testMethodName)
-        test_return = find_backlight_path(windows_path)
-        self.assertIsNotNone(test_return, msg=f"for testing on Windows - can ignore")
         print(self._testMethodName, " - PASSED")
         print("-----")
 
