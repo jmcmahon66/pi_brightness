@@ -19,7 +19,7 @@ pip install pi_brightness
 ## Usage
 
 ```python
-from pi_brightness import *
+from pi_brightness.pi_brightness import *
 
 # Use a value from 0-100 for screen brightness percentage
 update_brightness("80")
